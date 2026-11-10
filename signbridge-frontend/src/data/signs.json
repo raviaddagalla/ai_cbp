@@ -1,0 +1,282 @@
+[
+  {
+    "id": 0,
+    "label": "Namaste",
+    "category": "greetings",
+    "description": "Press palms flat together in front of the chest with fingers pointing upward; slight respectful head nod.",
+    "emoji": "🙏",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 1,
+    "label": "Hello",
+    "category": "greetings",
+    "description": "Open palm raised to the side of the head in a relaxed wave motion.",
+    "emoji": "👋",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 2,
+    "label": "Goodbye",
+    "category": "greetings",
+    "description": "Open palm facing forward, fingers together, then wave side to side slowly.",
+    "emoji": "👋",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 3,
+    "label": "Thank You",
+    "category": "greetings",
+    "description": "Flat open hand touches the chin or lips gently and moves outwards toward the conversation partner.",
+    "emoji": "🤝",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 4,
+    "label": "Sorry",
+    "category": "greetings",
+    "description": "Closed fist rubbed in circular motion over the chest (heart region).",
+    "emoji": "🙏",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 5,
+    "label": "Water",
+    "category": "daily",
+    "description": "Make a loose cup shape with the dominant hand and tap fingertips twice gently near the side of the lips.",
+    "emoji": "💧",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 6,
+    "label": "Food",
+    "category": "daily",
+    "description": "All fingertips gathered into a pinched shape and brought repeatedly towards the open mouth.",
+    "emoji": "🍽️",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 7,
+    "label": "Help",
+    "category": "emergency",
+    "description": "Closed dominant fist with thumb upright rests on the flat palm of the non-dominant hand; both move upward together.",
+    "emoji": "🆘",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 8,
+    "label": "Yes",
+    "category": "daily",
+    "description": "Hand forms a fist and nods downward repeatedly, mimicking a head nod.",
+    "emoji": "✅",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 9,
+    "label": "No",
+    "category": "daily",
+    "description": "Index and middle fingers extended, side by side, and swept horizontally from side to side.",
+    "emoji": "❌",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 10,
+    "label": "Please",
+    "category": "daily",
+    "description": "Flat hand placed on chest and moved in a small circular motion.",
+    "emoji": "🤲",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 11,
+    "label": "More",
+    "category": "daily",
+    "description": "Fingertips of both hands touch and pull apart repeatedly.",
+    "emoji": "➕",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 12,
+    "label": "Stop",
+    "category": "daily",
+    "description": "One flat hand strikes down onto the upward-facing palm of the other hand.",
+    "emoji": "✋",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 13,
+    "label": "Doctor",
+    "category": "emergency",
+    "description": "Index and middle fingers of dominant hand tap the inner wrist pulse point twice.",
+    "emoji": "👨‍⚕️",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 14,
+    "label": "Police",
+    "category": "emergency",
+    "description": "Badge shape traced with index finger on upper chest/shoulder area.",
+    "emoji": "🚔",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 15,
+    "label": "Hospital",
+    "category": "emergency",
+    "description": "Fingertips trace a cross (+) shape on the upper arm, like a medical symbol.",
+    "emoji": "🏥",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 16,
+    "label": "Emergency",
+    "category": "emergency",
+    "description": "Both hands raised palms outward, shaking rapidly to indicate distress.",
+    "emoji": "🚨",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 17,
+    "label": "Pain",
+    "category": "emergency",
+    "description": "Both index fingers point toward each other and move toward each other repeatedly near the painful area.",
+    "emoji": "😣",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 18,
+    "label": "I / Me",
+    "category": "family",
+    "description": "Index finger points to self (chest).",
+    "emoji": "👆",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 19,
+    "label": "You",
+    "category": "family",
+    "description": "Index finger extended and pointed directly toward the conversation partner.",
+    "emoji": "👉",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 20,
+    "label": "Mother",
+    "category": "family",
+    "description": "Thumb of open hand touches the chin, fingers spread.",
+    "emoji": "👩",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 21,
+    "label": "Father",
+    "category": "family",
+    "description": "Thumb of open hand touches the forehead, fingers spread.",
+    "emoji": "👨",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 22,
+    "label": "Friend",
+    "category": "family",
+    "description": "Index fingers linked and unlinked alternately at chest level.",
+    "emoji": "🤝",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 23,
+    "label": "Teacher",
+    "category": "family",
+    "description": "Flat hands face each other near the temples, fingers together, then move outward.",
+    "emoji": "🏫",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 24,
+    "label": "Student",
+    "category": "family",
+    "description": "One hand holds an imaginary book while the other skims across it.",
+    "emoji": "📚",
+    "hands": "2-Hand"
+  },
+  {
+    "id": 25,
+    "label": "One",
+    "category": "numbers",
+    "description": "Index finger raised, all others closed.",
+    "emoji": "1️⃣",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 26,
+    "label": "Two",
+    "category": "numbers",
+    "description": "Index and middle fingers raised in a V-shape.",
+    "emoji": "2️⃣",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 27,
+    "label": "Three",
+    "category": "numbers",
+    "description": "Thumb, index, and middle fingers raised.",
+    "emoji": "3️⃣",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 28,
+    "label": "Four",
+    "category": "numbers",
+    "description": "Four fingers raised, thumb folded.",
+    "emoji": "4️⃣",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 29,
+    "label": "Five",
+    "category": "numbers",
+    "description": "All five fingers spread open, palm facing forward.",
+    "emoji": "5️⃣",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 30,
+    "label": "Ten",
+    "category": "numbers",
+    "description": "Thumb raised and hand shaken slightly (or both fists displayed).",
+    "emoji": "🔟",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 31,
+    "label": "Come",
+    "category": "daily",
+    "description": "Index finger curls inward in a beckoning motion.",
+    "emoji": "👈",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 32,
+    "label": "Go",
+    "category": "daily",
+    "description": "Index finger points outward and arm extends in a direction.",
+    "emoji": "👉",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 33,
+    "label": "Good",
+    "category": "daily",
+    "description": "Flat hand touches the lips and moves forward and downward.",
+    "emoji": "👍",
+    "hands": "1-Hand"
+  },
+  {
+    "id": 34,
+    "label": "Bad",
+    "category": "daily",
+    "description": "Flat hand touches the lips then flicks downward and forward sharply.",
+    "emoji": "👎",
+    "hands": "1-Hand"
+  }
+]

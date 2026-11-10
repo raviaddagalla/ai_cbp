@@ -1,0 +1,67 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // ── SignBridge Design System Colors ──
+        "primary":                    "#00236f",
+        "on-primary":                 "#ffffff",
+        "primary-container":          "#1e3a8a",
+        "on-primary-container":       "#90a8ff",
+        "primary-fixed":              "#dce1ff",
+        "on-primary-fixed":           "#00164e",
+        "secondary":                  "#0058be",
+        "on-secondary":               "#ffffff",
+        "secondary-container":        "#2170e4",
+        "on-secondary-container":     "#fefcff",
+        "secondary-fixed":            "#d8e2ff",
+        "on-secondary-fixed":         "#001a42",
+        "tertiary":                   "#00311f",
+        "on-tertiary":                "#ffffff",
+        "tertiary-container":         "#004a31",
+        "on-tertiary-container":      "#27c38a",
+        "tertiary-fixed":             "#6ffbbe",
+        "on-tertiary-fixed":          "#002113",
+        "surface":                    "#f8f9ff",
+        "surface-dim":                "#cbdbf5",
+        "surface-bright":             "#f8f9ff",
+        "surface-container-lowest":   "#ffffff",
+        "surface-container-low":      "#eff4ff",
+        "surface-container":          "#e5eeff",
+        "surface-container-high":     "#dce9ff",
+        "surface-container-highest":  "#d3e4fe",
+        "surface-variant":            "#d3e4fe",
+        "on-surface":                 "#0b1c30",
+        "on-surface-variant":         "#444651",
+        "inverse-surface":            "#213145",
+        "inverse-on-surface":         "#eaf1ff",
+        "inverse-primary":            "#b6c4ff",
+        "outline":                    "#757682",
+        "outline-variant":            "#c5c5d3",
+        "error":                      "#ba1a1a",
+        "on-error":                   "#ffffff",
+        "error-container":            "#ffdad6",
+        "on-error-container":         "#93000a",
+        "background":                 "#f8f9ff",
+        "on-background":              "#0b1c30",
+      },
+      fontFamily: {
+        manrope: ["Manrope", "sans-serif"],
+        inter:   ["Inter",   "sans-serif"],
+      },
+      borderRadius: {
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+      },
+      spacing: {
+        "safe-bottom": "max(env(safe-area-inset-bottom, 0px), 12px)",
+      },
+    },
+  },
+  plugins: [],
+};
+

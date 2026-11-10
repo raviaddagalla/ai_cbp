@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>SignBridge - ISL AI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#d3e4fe", "on-tertiary-container": "#27c38a", "primary-fixed-dim": "#b6c4ff", "on-tertiary": "#ffffff", "surface": "#f8f9ff", "surface-container-low": "#eff4ff", "tertiary-fixed": "#6ffbbe", "surface-dim": "#cbdbf5", "primary-container": "#1e3a8a", "tertiary": "#00311f", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "on-secondary": "#ffffff", "secondary": "#0058be", "on-tertiary-fixed-variant": "#005236", "tertiary-container": "#004a31", "inverse-on-surface": "#eaf1ff", "inverse-surface": "#213145", "outline": "#757682", "on-tertiary-fixed": "#002113", "on-background": "#0b1c30", "background": "#f8f9ff", "error": "#ba1a1a", "primary-fixed": "#dce1ff", "on-primary-container": "#90a8ff", "on-primary-fixed": "#00164e", "on-secondary-fixed": "#001a42", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-container-highest": "#d3e4fe", "surface-container": "#e5eeff", "on-secondary-container": "#fefcff", "on-surface-variant": "#444651", "surface-tint": "#4059aa", "primary": "#00236f", "on-secondary-fixed-variant": "#004395", "on-error": "#ffffff", "secondary-fixed": "#d8e2ff", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#dce9ff", "outline-variant": "#c5c5d3", "on-surface": "#0b1c30", "inverse-primary": "#b6c4ff", "secondary-container": "#2170e4", "secondary-fixed-dim": "#adc6ff", "surface-bright": "#f8f9ff", "on-primary-fixed-variant": "#264191" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "gutter": "1rem", "margin": "1rem", "space-xl": "2rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "margin-desktop": "3rem", "space-md": "1rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem", "margin-tablet": "1.5rem" }, fontFamily: { "label-lg": ["Inter"], "body-md": ["Inter"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "label-sm": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Manrope"], "label-md": ["Inter"], "body-lg": ["Inter"], "code-output": ["Inter"], "display-lg-mobile": ["Manrope"], "headline-sm": ["Manrope"] }, fontSize: { "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "code-output": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "display-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="SignBridge Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrCWaUaLvj8g4jDwWMzpqVIhe0D7tN_N9DK2TSJAfaT0y1nMXdRaOuF78G20F9vi9A0r6lFj2aympwuPPWP5Rxc-BmU2j1IDBlc_rwfTddu3-zcM_vGaO9JN2-GhJ46AqanqKYlPayqDArufSAnvHuCETlKSGcQId9wyiiIrKb6_ijqj9I8l61V4T2UK97SdTMnHHxZEdn3388kR-X-3SJTwALlcSHNEauLXrcHfY6FS"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold truncate">SignBridge</span><span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-label-sm uppercase tracking-wider font-semibold whitespace-nowrap">ISL AI</span></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Live Translator</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications &amp; System Status" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors focus:outline-none"><span class="material-symbols-outlined text-[22px]">info</span></button><a class="w-11 h-11 flex items-center justify-center rounded-full focus:outline-none" data-path="settings" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIWaeIc88jZoxZLR9gmAr5V8nYCbRCoBt5AQIalr-YvMGORbbFT32HHBFGURp2_1vdZcrCYS4N6NHR0zlzb8l6Rn-Ce17efSCPYY-ia-pEGAXWjvS7yXkdd9znV-2MUN5x7uf1ktYdNXwtAD98YZlVjwOkaJEPDezbT1lFI31_LkdxTqaqLLXoD00I78efGpg7Lj8wO7WKSbKsf28PihGmgTr4Db1ri6z4bHf_3k"/></a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin pb-10 gap-y-space-md">
+<!-- PWA Offline Status Banner & Reverse Lookup Teaser -->
+<section class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between gap-space-xs bg-surface-container-high px-space-md py-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container animate-pulse flex-shrink-0"></span>
+<span class="font-label-sm text-label-sm text-primary font-semibold truncate">Offline Dictionary Ready • 85 Signs Cached</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">cloud_done</span>
+</div>
+<!-- Interactive Reverse Mode Banner -->
+<div class="bg-gradient-to-r from-primary-container via-secondary to-primary-container p-space-md rounded-2xl shadow-sm text-on-primary flex items-center justify-between gap-space-md relative overflow-hidden group cursor-pointer" onclick="toggleReverseMode()">
+<div class="flex flex-col min-w-0 z-10">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">swap_horiz</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed font-bold">New Feature</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-primary font-bold tracking-tight truncate">Text-to-Sign Reverse Lookup</h2>
+<p class="font-body-sm text-body-sm text-surface-container-high/90 truncate">Type English or Hindi words to watch animated 3D ISL avatar gestures</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest/15 backdrop-blur-md flex items-center justify-center flex-shrink-0 text-on-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</div>
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-surface-container-lowest/10 rounded-full blur-xl pointer-events-none"></div>
+</div>
+</section>
+<!-- Search Input Bar & Fast Action Controls -->
+<section class="flex flex-col gap-space-xs">
+<div class="relative w-full flex items-center">
+<span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[22px] pointer-events-none">search</span>
+<input class="w-full h-12 pl-12 pr-11 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/70 font-body-md text-body-md rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 transition-all" id="sign-search-input" oninput="handleSearch(this.value)" placeholder="Search signs by word, letter, or topic..." type="search" value=""/>
+<button aria-label="Clear Search" class="hidden absolute right-space-sm w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface focus:outline-none active:scale-95 transition-all" id="clear-search-btn" onclick="clearSearch()">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</button>
+</div>
+<!-- Category Filter Horizontal Scroll -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1.5 no-scrollbar -mx-margin px-margin">
+<button class="category-chip active flex-shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all active:scale-95 shadow-sm" onclick="filterCategory('all', this)">
+        All Signs (85)
+      </button>
+<button class="category-chip flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-variant active:scale-95" onclick="filterCategory('greetings', this)">
+        Greetings (12)
+      </button>
+<button class="category-chip flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-variant active:scale-95" onclick="filterCategory('emergency', this)">
+        Emergency (8)
+      </button>
+<button class="category-chip flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-variant active:scale-95" onclick="filterCategory('daily', this)">
+        Daily Needs (18)
+      </button>
+<button class="category-chip flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-variant active:scale-95" onclick="filterCategory('family', this)">
+        People &amp; Family (14)
+      </button>
+<button class="category-chip flex-shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all hover:bg-surface-variant active:scale-95" onclick="filterCategory('numbers', this)">
+        Numbers (10)
+      </button>
+</div>
+</section>
+<!-- Metric & Sorting Bar -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">database</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold" id="results-count">Showing 8 of 85 ISL Signs in Local Cache</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm font-semibold cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">sort_by_alpha</span>
+<span>A – Z</span>
+</div>
+</div>
+<!-- Sign Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="sign-card-list">
+<!-- Card 1: Namaste -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="greetings" data-name="namaste" onclick="openDetailModal('Namaste', 'Greetings', 'Press palms flat together in front of the chest with fingers pointing upwards; slight respectful head nod.', 'Formal Greeting', 'High Usage')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Close up photograph showing two hands brought together palm to palm in traditional Indian Namaste gesture against a warm neutral clean academic background with soft directional natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHSf3hR8DjUIwsF5omgSdGhKCpvl7GvCmL2MYrhZMYRlraptpGOBljgYUnC2cg0UipvF68tJnH3BuLa3y3AfwZFI33JhhTZhKRJ3ihcEkAX_WvBnYVN-mSZJ2UKcDmMmTx5tMW3Jv3i659CFiqup-OUBJQVKlSMNPVI_sgHEIgzzjgC_EcQsi-VPpNnMZv1qPE0fjNaBpsVKRMzjMPJYJck58vG6F88AWS1BthVMs"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-[10px] font-semibold tracking-wide">Greetings</span>
+<span class="px-1.5 py-0.5 rounded-full bg-tertiary-fixed-dim/20 text-on-tertiary-container font-label-sm text-[10px] font-bold">2-Hand</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Namaste</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Formal respectful greeting</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 2: Water / Jal -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="daily" data-name="water jal paani" onclick="openDetailModal('Water', 'Daily Needs', 'Make a loose cup shape with the dominant hand and tap fingertips twice gently near the side of the lips.', 'Essential Need', 'Universal')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Educational demonstration photo of a signer miming holding a cup to their mouth in Indian Sign Language for water in front of a soft light blue background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeR4j8taKaVNyRDWxUQelBo9tvn-ZKO9YTS0nbPhSEPzjOaJfj2OvxYm_7YNbTjAy92SwoAEuK7LKHCsyHaR4fStFAteYlZrwplYRXzBpzA3dxEoEoNPr8uBxOH4fZSe4v7Kn1ZPSL3sGlL8pzW9MHNaV7atxERLm_Ouuv5TdXe39Zsk_PHJRu1hekhIwnJLoP-vyAGlQB00zvf0IMiIgCNthYKjW8Pe5lRYtUyxw"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[10px] font-semibold tracking-wide">Daily Needs</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px] font-bold">Dominant Hand</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Water (Paani)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Drinking water gesture</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 3: Thank You / Dhanyavaad -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="greetings" data-name="thank you dhanyavaad shukriya" onclick="openDetailModal('Thank You', 'Greetings', 'Flat open hand touches the chin or lips gently and moves outwards toward the conversation partner in a welcoming arc.', 'Gratitude', 'Everyday')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Studio instructional photo of an Indian woman performing the sign for thank you moving flat palm forward from her chin with a smiling friendly expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMz0zzwROH7wgBOn2AYDcgMSHafpYnTV7i6Guz47qrSmBdSxxzmCEuARvvH49DpuIuEOTesDqSolhMY3RnLXlOcWQz8jZzqCGX-2h14XZ9G74NmH_--L8iw2oRH9r0c0TvAuHIdHdM-4iEskEM2DBETOvd5AehrZlDoAPRKYi4-EezjjBMSL0qyI4dZyGJwNDsKUgjsmAIq72i5tLSRhRyG48zYflTxXjkeSC7FO8"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-[10px] font-semibold tracking-wide">Greetings</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">Expressive</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Thank You</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Expression of gratitude</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 4: Help / Sahayata (Emergency Highlight) -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="emergency" data-name="help sahayata madad" onclick="openDetailModal('Help / Madad', 'Emergency', 'Closed dominant fist with thumb upright rests on the flat palm of the non-dominant hand; both move upwards together.', 'SOS Critical', 'Emergency')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-error-container/40 flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Detailed clear visual guide showing sign language gesture for help: closed fist on open supporting palm moving upward with focused clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC58yVKoN6OirQNgk5FxmT3-WbImQGh_KO7YEUVOTpYUta-QB7rwm88NtMlyKkUTHaU722xNHTH6jwVN1x_zEKxUx4-kZVrVNIsspM91jqZF6IF6L8Fa4tD3KXofKKwE_KmUgFBl56WcPkDVEAavh9lAcc86xC-EIh-RNFlLUV5QmfojKqhXLWgSHneEUpiq-C_ywHEYWXDVR4ZcOrcDIHw1ww9rZ_8qM7QoBjxIJg"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-error font-bold">SOS</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px] font-bold tracking-wide">Emergency</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">Priority</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Help (Madad)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Urgent assistance gesture</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-error-container group-hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 5: Doctor / Chikitsak -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="emergency" data-name="doctor chikitsak medical hospital" onclick="openDetailModal('Doctor', 'Emergency', 'Index and middle fingers of dominant hand tap the inner wrist pulse point of the extended forearm twice.', 'Medical Care', 'Professional')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Instructional sign language photo illustrating checking the wrist pulse to represent doctor or medical clinic in Indian Sign Language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqxqqK_l4C2UYjAhDxTdrzex64C7T_8fr6N3vH7Hw0ZCHnA3VqDJRM8-WXknjdDOP5QCtGCdI5-T8fslcfSM3BuNEzfstUbjAy5cB_OPGIhcye2TpOHjtFYSzryulLdT_s7Qc6KoOHAc7UlUmUNtjtAE9BSir4TUuOmN8hXzg7WnZ_hg3cShHKKgyhXFwj8FoWXAxlLOZ3uuSVruoSUSLFuRCA8ESzstawKiGnl-o"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px] font-bold tracking-wide">Emergency</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">Wrist Tap</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Doctor</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Medical practitioner sign</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 6: Food / Khana -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="daily" data-name="food khana bhojan eat meal" onclick="openDetailModal('Food / Khana', 'Daily Needs', 'All fingertips gathered together into a pinched flower bud shape and brought repeatedly towards the open mouth.', 'Nourishment', 'Daily')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Educational visual demonstrating the sign for food and eating in Indian sign language with fingertips bunched toward the mouth against a tidy classroom background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn8civFvxcjUZSOci0_ON5ku8Jaq8veuzXPzEfV8g7meAyX1nAxFQO4PDQEcRoIPlrncxfpTkUzWB3_zVydGZ-DWCKZci89cfeqcrNfSxheM8X99AU7hnvyQXJ2kQ_p-QQw5IZu0JEvSqzNWL_4xddr6bn2ScK11wKM6OZa5AOpbhij-_bj0nyyWVbv7oaw8d7dtdjE-bhv1W1DHfuds-9CiND6zK3OLAhxrpiVXA"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[10px] font-semibold tracking-wide">Daily Needs</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">Frequent</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Food (Khana)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Meal or eating indication</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 7: Father / Pita -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="family" data-name="father pita papa dad" onclick="openDetailModal('Father / Pita', 'People &amp; Family', 'Dominant thumb and index fingers touch the upper lip in a mustache twisting motion, representing traditional male elder reference in ISL.', 'Family Kinship', 'Relation')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Detailed clear sign language portrait of a person gesturing the sign for father in ISL with soft studio lighting and crisp educational contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOm2OolYGXQTXmw0WkXkbfMpEydPcFwLX_KuXqL-ERqalxLKXubvEt15eu4ouotNfvBD-ftt2hkCorDKwKJ9YtgC1sU9Z2syljn7l8Aq2H0X9-EOVF9gCFRX5gIzxOuB7skGsDVEm-wZGzEYxWoAOVCbWYC_B1JlLHmWBqsQFAlJLNd5V_sIujvTDt1QAeg0Au05qJ3KRhQxUBrRJr8_n7g9XrkX7Wnvc2KpwWEMA"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.2 rounded text-[9px] font-label-sm text-primary font-bold">ISL</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-[10px] font-semibold tracking-wide">People &amp; Family</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">Face Gesture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Father (Pita)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Family elder relationship</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+<!-- Card 8: Emergency / Sankat -->
+<article class="sign-card bg-surface-container-lowest rounded-2xl p-space-md shadow-sm hover:shadow-md transition-all active:scale-[0.99] flex items-center justify-between gap-space-md cursor-pointer group" data-category="emergency" data-name="emergency sankat khatra danger alert" onclick="openDetailModal('Emergency / Sankat', 'Emergency', 'Both hands raised palms outward shaking rapidly with serious facial tension indicating danger or urgent distress.', 'Critical SOS', 'Alert')">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-18 h-18 w-[72px] h-[72px] rounded-xl overflow-hidden bg-error-container/30 flex-shrink-0 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="High contrast photograph of an instructor demonstrating the sign language symbol for danger and emergency with expressive hands open facing outward." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxthwVIu9-Upu7bpzIWneJDpY2FZJdXfTRROxc_2Xk_n8Nb9x71YxFeuwB6iS3tS2ugkDh9v-f4CwNDBEOXIsawpspl0ccYZ5MiKM6Q2pBcEAWAAzBbLGgR4greb5PnPt0nn2vHt1EG5y1w2IrI-JnNtZY9TebrD3TSEEAkV8m1UwZedETrtmkcb4mJeqMo5dJDXjMPycxuXa4XD6QCQwFMQ2TSlGzZcMSxa_gMiM"/>
+<span class="absolute bottom-1 right-1 bg-error text-on-error px-1 py-0.2 rounded text-[9px] font-label-sm font-bold">URGENT</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[10px] font-bold tracking-wide">Emergency</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] font-bold">2-Hand Alert</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Emergency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Critical distress signal</p>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0 text-on-surface-variant group-hover:bg-error-container group-hover:text-on-error-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</article>
+</div>
+<!-- Empty State (Shown dynamically when search yields zero results) -->
+<div class="hidden flex flex-col items-center justify-center p-space-xl bg-surface-container-lowest rounded-2xl shadow-sm text-center" id="no-results-state">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px]">manage_search</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mb-1">No matching signs found</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mb-space-md">Try searching for simple root words like "Food", "Help", or "Doctor", or request an addition to the local cache.</p>
+<button class="px-space-md py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold active:scale-95 transition-transform shadow-sm" onclick="clearSearch()">
+      Reset Dictionary Filters
+    </button>
+</div>
+<!-- Educational Practice Callout Card -->
+<section class="bg-surface-container-low p-space-md rounded-2xl flex items-center gap-space-md mt-space-xs">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">model_training</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Want to test your gestures?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Switch to the real-time Live Translator camera to verify your hand posture and landmark mesh.</p>
+</div>
+</section>
+<!-- Sign Detail Modal Bottom Sheet -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-end justify-center transition-opacity" id="sign-detail-modal" onclick="closeDetailModal(event)">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-t-3xl p-space-lg flex flex-col gap-space-md shadow-2xl animate-in slide-in-from-bottom duration-200" onclick="event.stopPropagation()">
+<!-- Drag handle -->
+<div class="w-12 h-1.5 bg-outline-variant/60 rounded-full mx-auto -mt-2"></div>
+<!-- Header row -->
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold" id="modal-category">Category</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm" id="modal-tag">High Usage</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold truncate" id="modal-title">Sign Title</h2>
+</div>
+<button aria-label="Close modal" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform" onclick="closeDetailModalDirect()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Sign Demonstration Media Frame -->
+<div class="w-full h-52 bg-surface-container-high rounded-2xl overflow-hidden relative shadow-inner flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="High resolution detailed step-by-step hand posture photograph for Indian Sign Language training with clear palm angles and facial accompaniment." id="modal-media-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSf70FmRSwS-xTPhmVeFDP88mZZaDEbG-XbhoXX7ESqKibwDc-7Mh03g6sT_Qzl5EQNNGZuUB9TZgSpKXNXyRT2iBMi4m1yHTfEJfzjl1R3lOWZNgoVfqPqYmUrVNqrQW6OkVWmSfxUX3p94gfYCfufmfXfldY67_mHUtDImOAJ0QQNxmZbT9SXZtF_nv-QQeyUNairugC9A9bBw1KGbgeW8FaR_Tf0h8tsdXhLag"/>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between pointer-events-none">
+<span class="bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-full text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+            Verified ISL Standard
+          </span>
+<button class="pointer-events-auto bg-primary text-on-primary p-2 rounded-full shadow-md active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">slow_motion_video</span>
+</button>
+</div>
+</div>
+<!-- Detailed Step-by-Step Instructions -->
+<div class="flex flex-col gap-1.5 bg-surface-container-low p-space-md rounded-xl">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">How to Perform:</span>
+<p class="font-body-md text-body-md text-on-surface" id="modal-desc">Instruction steps go here.</p>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<button class="h-12 rounded-xl bg-surface-container text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs active:scale-98 transition-all hover:bg-surface-variant" onclick="speakCurrentSign()">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<span>Audio Pronounce</span>
+</button>
+<button class="h-12 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs active:scale-98 transition-all shadow-sm" onclick="practiceInCamera()">
+<span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+<span>Practice Gesture</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let currentActiveCategory = 'all';
+
+  function filterCategory(category, clickedElement) {
+    currentActiveCategory = category;
+    
+    // Update chip styling
+    const chips = document.querySelectorAll('.category-chip');
+    chips.forEach(chip => {
+      chip.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+      chip.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+
+    clickedElement.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    clickedElement.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+
+    applyFilters();
+  }
+
+  function handleSearch(query) {
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (query.trim().length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+    applyFilters();
+  }
+
+  function clearSearch() {
+    const input = document.getElementById('sign-search-input');
+    input.value = '';
+    document.getElementById('clear-search-btn').classList.add('hidden');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('sign-search-input').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.sign-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardName = card.getAttribute('data-name');
+
+      const matchesCat = (currentActiveCategory === 'all') || (cardCategory === currentActiveCategory);
+      const matchesQuery = !query || cardName.includes(query);
+
+      if (matchesCat && matchesQuery) {
+        card.classList.remove('hidden');
+        card.classList.add('flex');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('flex');
+      }
+    });
+
+    const noResults = document.getElementById('no-results-state');
+    const resultsCountEl = document.getElementById('results-count');
+
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+
+    resultsCountEl.textContent = `Showing ${visibleCount} of 85 ISL Signs in Local Cache`;
+  }
+
+  function openDetailModal(title, category, desc, tag, extra) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-category').textContent = category;
+    document.getElementById('modal-desc').textContent = desc;
+    document.getElementById('modal-tag').textContent = tag || 'Essential Sign';
+
+    const modal = document.getElementById('sign-detail-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetailModal(e) {
+    if (e.target.id === 'sign-detail-modal') {
+      closeDetailModalDirect();
+    }
+  }
+
+  function closeDetailModalDirect() {
+    const modal = document.getElementById('sign-detail-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function speakCurrentSign() {
+    const signName = document.getElementById('modal-title').textContent;
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(signName);
+      utterance.lang = 'en-IN';
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  function practiceInCamera() {
+    closeDetailModalDirect();
+    const liveTab = document.querySelector('nav a[data-path="live-translator"]');
+    if (liveTab) {
+      liveTab.click();
+    }
+  }
+
+  function toggleReverseMode() {
+    const input = document.getElementById('sign-search-input');
+    input.focus();
+    input.placeholder = "Enter word for 3D avatar sign playback...";
+  }
+
+  // Update bottom navigation to highlight dictionary tab
+  document.addEventListener('DOMContentLoaded', () => {
+    const navAnchors = document.querySelectorAll('nav a');
+    navAnchors.forEach(a => {
+      a.classList.remove('text-primary', 'font-bold');
+      a.classList.add('text-on-surface-variant');
+      if (a.getAttribute('data-path') === 'isl-dictionary') {
+        a.classList.remove('text-on-surface-variant');
+        a.classList.add('text-primary', 'font-bold');
+      }
+    });
+  });
+
+  // Self execution to ensure proper tab state even if DOMContentLoaded already fired
+  (function updateActiveTab() {
+    const dictTab = document.querySelector('nav a[data-path="isl-dictionary"]');
+    if (dictTab) {
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.remove('text-primary', 'font-bold');
+        a.classList.add('text-on-surface-variant');
+      });
+      dictTab.classList.remove('text-on-surface-variant');
+      dictTab.classList.add('text-primary', 'font-bold');
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_16px_-2px_rgba(15,23,42,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="live-translator" href="#"><span class="material-symbols-outlined text-[28px]">center_focus_strong</span><span class="font-label-sm text-[10px] tracking-tight mt-0.5 font-semibold">Translate</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="isl-dictionary" href="#"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm">Dictionary</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="translation-history" href="#"><span class="material-symbols-outlined text-[24px]">history</span><span class="font-label-sm text-label-sm">History</span></a></div></nav></body></html>

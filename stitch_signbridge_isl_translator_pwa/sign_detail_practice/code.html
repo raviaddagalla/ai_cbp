@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>SignBridge - ISL AI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#d3e4fe", "on-tertiary-container": "#27c38a", "primary-fixed-dim": "#b6c4ff", "on-tertiary": "#ffffff", "surface": "#f8f9ff", "surface-container-low": "#eff4ff", "tertiary-fixed": "#6ffbbe", "surface-dim": "#cbdbf5", "primary-container": "#1e3a8a", "tertiary": "#00311f", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "on-secondary": "#ffffff", "secondary": "#0058be", "on-tertiary-fixed-variant": "#005236", "tertiary-container": "#004a31", "inverse-on-surface": "#eaf1ff", "inverse-surface": "#213145", "outline": "#757682", "on-tertiary-fixed": "#002113", "on-background": "#0b1c30", "background": "#f8f9ff", "error": "#ba1a1a", "primary-fixed": "#dce1ff", "on-primary-container": "#90a8ff", "on-primary-fixed": "#00164e", "on-secondary-fixed": "#001a42", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-container-highest": "#d3e4fe", "surface-container": "#e5eeff", "on-secondary-container": "#fefcff", "on-surface-variant": "#444651", "surface-tint": "#4059aa", "primary": "#00236f", "on-secondary-fixed-variant": "#004395", "on-error": "#ffffff", "secondary-fixed": "#d8e2ff", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#dce9ff", "outline-variant": "#c5c5d3", "on-surface": "#0b1c30", "inverse-primary": "#b6c4ff", "secondary-container": "#2170e4", "secondary-fixed-dim": "#adc6ff", "surface-bright": "#f8f9ff", "on-primary-fixed-variant": "#264191" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "gutter": "1rem", "margin": "1rem", "space-xl": "2rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "margin-desktop": "3rem", "space-md": "1rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem", "margin-tablet": "1.5rem" }, fontFamily: { "label-lg": ["Inter"], "body-md": ["Inter"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "label-sm": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Manrope"], "label-md": ["Inter"], "body-lg": ["Inter"], "code-output": ["Inter"], "display-lg-mobile": ["Manrope"], "headline-sm": ["Manrope"] }, fontSize: { "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "code-output": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "display-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="SignBridge Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrCWaUaLvj8g4jDwWMzpqVIhe0D7tN_N9DK2TSJAfaT0y1nMXdRaOuF78G20F9vi9A0r6lFj2aympwuPPWP5Rxc-BmU2j1IDBlc_rwfTddu3-zcM_vGaO9JN2-GhJ46AqanqKYlPayqDArufSAnvHuCETlKSGcQId9wyiiIrKb6_ijqj9I8l61V4T2UK97SdTMnHHxZEdn3388kR-X-3SJTwALlcSHNEauLXrcHfY6FS"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold truncate">SignBridge</span><span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-label-sm uppercase tracking-wider font-semibold whitespace-nowrap">ISL AI</span></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Live Translator</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications &amp; System Status" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors focus:outline-none"><span class="material-symbols-outlined text-[22px]">info</span></button><a class="w-11 h-11 flex items-center justify-center rounded-full focus:outline-none" data-path="settings" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIWaeIc88jZoxZLR9gmAr5V8nYCbRCoBt5AQIalr-YvMGORbbFT32HHBFGURp2_1vdZcrCYS4N6NHR0zlzb8l6Rn-Ce17efSCPYY-ia-pEGAXWjvS7yXkdd9znV-2MUN5x7uf1ktYdNXwtAD98YZlVjwOkaJEPDezbT1lFI31_LkdxTqaqLLXoD00I78efGpg7Lj8wO7WKSbKsf28PihGmgTr4Db1ri6z4bHf_3k"/></a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Top Breadcrumb & Action Header -->
+<div class="px-gutter pt-2 pb-3 flex items-center justify-between">
+<a class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary transition-all active:scale-[0.98]" data-path="isl-dictionary" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="font-label-md text-label-md">Back to Dictionary</span>
+</a>
+<div class="flex items-center gap-1">
+<button aria-label="Bookmark Sign" class="w-9 h-9 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">bookmark_border</span>
+</button>
+<button aria-label="Share Sign" class="w-9 h-9 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Sign Title Headline Area -->
+<div class="px-gutter mb-3">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Standard ISL</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Lexicon #0142</span>
+</div>
+<div class="flex items-baseline justify-between">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">Namaste <span class="text-secondary font-headline-sm text-headline-sm font-normal">/ Hello</span></h1>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container px-2 py-1 rounded-lg">Level 1 (Basic)</span>
+</div>
+</div>
+<!-- Video Demonstration & Interactive Controls Card -->
+<div class="px-gutter mb-5">
+<div class="relative w-full rounded-2xl overflow-hidden bg-inverse-surface shadow-md aspect-[4/3] flex flex-col justify-between">
+<!-- Media Viewport Image -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-90" data-alt="A focused young Indian female sign language instructor demonstrating the traditional Namaste sign with both palms pressed firmly together in front of the upper chest, smiling gently against an uncluttered slate blue academic studio backdrop with soft directional lighting highlight on hands and subtle geometric MediaPipe landmark overlays on wrist and finger joints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzshndxNRGL2e0c601XqLr-P6xjJwCt8M-BOG9fjqBbl-jVduFje3DPLBM8GIJjOX85lbwYD8o2AnRU0A_s3OUIEWzMn13yelcpjEaHZXqa99qjZpPEoo9e9vz9uJxMd4u8TPN_chxe8tPJO09zxi8ihwYMe12cCIMA52zKbd8FJ0rJ5kqzCPcGM2VmLkNGuTZt6IOuEnYW-Y85Au5u-tvUH-FUgODd0qECV6OxVk"/>
+<!-- Video Top Badges Overlay -->
+<div class="relative z-10 p-3 flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-surface-container-lowest">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">4K Front Cam</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-tertiary-fixed font-label-sm text-label-sm flex items-center gap-1 shadow-sm transition-all active:scale-95" id="toggle-landmarks">
+<span class="material-symbols-outlined text-[16px]">scatter_plot</span>
+<span>Mesh: ON</span>
+</button>
+</div>
+</div>
+<!-- Center Loop Playback Indicator (Subtle Tap Target) -->
+<div class="relative z-10 flex-1 flex items-center justify-center pointer-events-none">
+<div class="w-14 h-14 rounded-full bg-primary/75 backdrop-blur-md flex items-center justify-center text-surface-container-lowest shadow-lg">
+<span class="material-symbols-outlined text-[32px]">sync</span>
+</div>
+</div>
+<!-- Video Control Deck Overlay -->
+<div class="relative z-10 p-3 bg-gradient-to-t from-inverse-surface/95 via-inverse-surface/70 to-transparent">
+<div class="flex items-center justify-between gap-2">
+<!-- Play / Replay Trigger -->
+<div class="flex items-center gap-2">
+<button aria-label="Replay Sign" class="w-9 h-9 rounded-full bg-surface-container-lowest/20 hover:bg-surface-container-lowest/30 backdrop-blur-md flex items-center justify-center text-surface-container-lowest active:scale-95 transition-all" id="replay-btn">
+<span class="material-symbols-outlined text-[20px]">replay</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-surface-container-lowest font-medium">Frontal Angle</span>
+<span class="text-[10px] text-surface-dim">Looping (0:02 / 0:04)</span>
+</div>
+</div>
+<!-- Playback Speed Selectors -->
+<div class="flex items-center bg-inverse-surface/90 backdrop-blur-md p-1 rounded-full">
+<button class="speed-btn px-2.5 py-1 rounded-full font-label-sm text-label-sm text-surface-container-lowest/70 hover:text-surface-container-lowest transition-all" data-speed="0.5">0.5x</button>
+<button class="speed-btn px-2.5 py-1 rounded-full font-label-sm text-label-sm text-surface-container-lowest/70 hover:text-surface-container-lowest transition-all" data-speed="0.75">0.75x</button>
+<button class="speed-btn active-speed px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold transition-all" data-speed="1.0">1.0x</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Interactive CTA: Live Practice -->
+<div class="px-gutter mb-6">
+<div class="p-4 rounded-2xl bg-primary text-on-primary shadow-lg flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-secondary-container/20 pointer-events-none blur-xl"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-surface-container-lowest/15 backdrop-blur-md flex items-center justify-center text-tertiary-fixed">
+<span class="material-symbols-outlined text-[24px]">videocam</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-primary">Practice with Camera</h2>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Real-time MediaPipe 3D Landmark Check</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-tertiary-fixed-dim font-label-sm text-label-sm font-semibold">AI Matcher</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-container-low/90 leading-relaxed">
+        Position your smartphone camera at chest level. SignBridge will evaluate hand distance, joint angles, and symmetry in real time.
+      </p>
+<a class="w-full py-3.5 px-4 rounded-xl bg-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-secondary active:scale-[0.98] transition-all shadow-md" data-path="live-translator" href="#">
+<span class="material-symbols-outlined text-[20px]">center_focus_strong</span>
+<span>Start Practice Session</span>
+</a>
+</div>
+</div>
+<!-- Landmark Posture & Vector Coordinates Guide -->
+<div class="px-gutter mb-6">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">join_inner</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Spatial Landmark Anatomy</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-container bg-surface-container-low px-2 py-0.5 rounded-full font-medium">21 Hand Nodes</span>
+</div>
+<!-- Vector Visual schematic of dual hands -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col items-center justify-center relative">
+<svg class="w-full max-w-[280px] h-auto text-primary" viewbox="0 0 320 140">
+<!-- Left Wrist and Forearm trajectory -->
+<path class="opacity-40" d="M 60 120 Q 90 95 125 70" fill="none" stroke="currentColor" stroke-dasharray="4 2" stroke-width="2.5"></path>
+<!-- Right Wrist and Forearm trajectory -->
+<path class="opacity-40" d="M 260 120 Q 230 95 195 70" fill="none" stroke="currentColor" stroke-dasharray="4 2" stroke-width="2.5"></path>
+<!-- Central meeting plane (Sternum / chest line) -->
+<line stroke="#90a8ff" stroke-dasharray="3 3" stroke-width="1.5" x1="160" x2="160" y1="20" y2="125"></line>
+<!-- Left Palm skeletal connection -->
+<polygon fill="#dce1ff" points="125,70 140,40 152,42 145,78" stroke="#0058be" stroke-width="2"></polygon>
+<!-- Right Palm skeletal connection -->
+<polygon fill="#dce1ff" points="195,70 180,40 168,42 175,78" stroke="#0058be" stroke-width="2"></polygon>
+<!-- Finger contact highlight nodes -->
+<circle cx="160" cy="38" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="160" cy="52" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="160" cy="68" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<!-- Left Knuckle Joint Points -->
+<circle cx="125" cy="70" fill="#00236f" r="3"></circle>
+<circle cx="140" cy="40" fill="#00236f" r="3"></circle>
+<!-- Right Knuckle Joint Points -->
+<circle cx="195" cy="70" fill="#00236f" r="3"></circle>
+<circle cx="180" cy="40" fill="#00236f" r="3"></circle>
+<!-- Alignment labels -->
+<text fill="#00236f" font-size="9" font-weight="600" text-anchor="middle" x="160" y="15">Chest Centerline Axis</text>
+<text fill="#444651" font-size="9" x="40" y="132">Left Wrist: Node 0</text>
+<text fill="#444651" font-size="9" x="210" y="132">Right Wrist: Node 0</text>
+</svg>
+<div class="mt-2 w-full grid grid-cols-2 gap-2 text-center pt-2">
+<div class="p-2 rounded-lg bg-surface-container-lowest">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Symmetry Variance</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">± 1.8° <span class="font-label-sm text-on-tertiary-container font-normal">(Optimal)</span></span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Fingertip Coplanarity</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">98.4%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- English Meaning & Linguistic Usage Section -->
+<div class="px-gutter mb-6">
+<div class="p-4 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">dictionary</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Linguistic Specification</h2>
+</div>
+<!-- Specification Grid -->
+<div class="flex flex-col gap-3">
+<!-- Category & Register -->
+<div class="flex flex-col gap-1 p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">sell</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Category</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Greetings &amp; Polite Phrases</p>
+</div>
+<!-- Hand Orientation -->
+<div class="flex flex-col gap-1 p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">pan_tool</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Hand Configuration</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+            Both palms flat (open hand B-shape) pressed firmly together along the sternum at mid-chest level, accompanied by a slight, courteous head inclination.
+          </p>
+</div>
+<!-- Regional Variants & Pragmatics -->
+<div class="flex flex-col gap-1 p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">public</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Regional Context &amp; Cultural Notes</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Universal across all Indian regional ISL dialects (Northern, Southern, Western variants). Standardly executed for both formal welcoming and respectful parting gestures across age groups.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Signs Carousel -->
+<div class="mb-4">
+<div class="px-gutter flex items-center justify-between mb-3">
+<h2 class="font-headline-sm text-headline-sm text-primary">Related Polite Signs</h2>
+<a class="font-label-md text-label-md text-secondary hover:underline" data-path="isl-dictionary" href="#">View All</a>
+</div>
+<!-- Horizontal scroll carousel -->
+<div class="flex gap-3 overflow-x-auto px-gutter no-scrollbar py-1">
+<!-- Related 1: Thank You -->
+<a class="flex-shrink-0 w-36 p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2 group hover:shadow-md transition-all active:scale-[0.98]" href="#">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Indian sign language instructor performing the Thank You sign by extending an open hand from the chin outward with a grateful expression in bright ambient daylight studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmK4n253i1CGqpr3WCz7t-euRFHsiHRbJLE45JaUe5U6we0qZs-0pAYJYgmZ7oxyIQR1saw1nTk_pxdbBsMdoUC5pJPgdLeUNGveIxXrf86YBcNK8wqWnjbQaFlee_Z7fGIgQ2bwR4D9h-fdVAbEKftBSi8r62vNUosiOmbxpckbLumubKUGZadloeuV3l_WWmBKLHV8EWMIkkckeKlkDLSQMteMRoGHuulj1BHSY"/>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-inverse-surface/75 text-surface-container-lowest text-[10px] font-mono">0:03</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary block truncate">Thank You</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block truncate">Danyavaad</span>
+</div>
+</a>
+<!-- Related 2: Welcome -->
+<a class="flex-shrink-0 w-36 p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2 group hover:shadow-md transition-all active:scale-[0.98]" href="#">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up pedagogical photograph of sign language gesture for Welcome with both hands sweeping inwards invitingly towards the body against a clean neutral educational background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRbmdVPAfs0qZ5_HkRHYJzpeqsm1Wc7mnypdQtzkZIIdK3vXd2o8Mlf7o9A22GH-ubyiVA8KivGjTcd9lDPkxzcdUrogfhckg4sFudrZRK0QCCYJVDgm8A5DTpBC57A6SXNyJ2Ai1zKjqM_fJjQdCuW4-xnstFbn4pgOfyVc6kvLswxBgOsUf1woxWGm8r-rmSk1O3bE3hwe_UXSwVHvMGgpyuD7LmcZXcB6uZvG0"/>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-inverse-surface/75 text-surface-container-lowest text-[10px] font-mono">0:04</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary block truncate">Welcome</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block truncate">Swagatam</span>
+</div>
+</a>
+<!-- Related 3: Please -->
+<a class="flex-shrink-0 w-36 p-3 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2 group hover:shadow-md transition-all active:scale-[0.98]" href="#">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pedagogical photo demonstration of the ISL sign for Please showing a gentle circular movement of the open palm over the chest area with soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQkoL2cY2sFsLb79uC-7Q3x4dHScUjlshD2FOZ-bCuFpHcvDf9VIaX4Y4F2j61Y9wzk10lBvBdQjAkjYq9zn8rCAJ9sCAoOBSrTK_45_CTwgt052xz3VHTOdhrIRJsJ2PY-yLP9MiQawdJMUgx2xUyEEml76JAC869fahISL-gRu3FwhhRHJiBLRfsFdth3BuxX5WUKf2HAeeoFM0Xj5giZgYY0sAtPE9uhibIXa8"/>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-inverse-surface/75 text-surface-container-lowest text-[10px] font-mono">0:03</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary block truncate">Please</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block truncate">Kripaya</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Micro-interactive Toast / Audio Synthesis Pill -->
+<div class="px-gutter pt-2">
+<div class="p-3 rounded-xl bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<button aria-label="Listen to Audio Pronunciation" class="w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center hover:bg-primary transition-colors active:scale-95 shadow-sm" id="tts-audio-trigger">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<div>
+<span class="font-label-md text-label-md text-primary block">Spoken Audio: "Namaste"</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hindi &amp; English Synthetic Voice</span>
+</div>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline">Slow Audio</button>
+</div>
+</div>
+</div>
+<script>
+  // Speed Selector micro-interaction
+  document.querySelectorAll('.speed-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.speed-btn').forEach(b => {
+        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+        b.classList.add('text-surface-container-lowest/70');
+      });
+      this.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+      this.classList.remove('text-surface-container-lowest/70');
+    });
+  });
+
+  // Mesh overlay toggle micro-interaction
+  const meshToggle = document.getElementById('toggle-landmarks');
+  if (meshToggle) {
+    let meshState = true;
+    meshToggle.addEventListener('click', () => {
+      meshState = !meshState;
+      meshToggle.innerHTML = meshState 
+        ? '<span class="material-symbols-outlined text-[16px]">scatter_plot</span><span>Mesh: ON</span>'
+        : '<span class="material-symbols-outlined text-[16px]">hide_source</span><span>Mesh: OFF</span>';
+      meshToggle.classList.toggle('text-tertiary-fixed', meshState);
+      meshToggle.classList.toggle('text-outline-variant', !meshState);
+    });
+  }
+
+  // Audio Playback tactile simulation
+  const ttsBtn = document.getElementById('tts-audio-trigger');
+  if (ttsBtn) {
+    ttsBtn.addEventListener('click', () => {
+      ttsBtn.classList.add('scale-110');
+      setTimeout(() => ttsBtn.classList.remove('scale-110'), 200);
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance('Namaste');
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      }
+    });
+  }
+
+  // Highlight Dictionary tab in bottom nav shell
+  const dictTab = document.querySelector('nav a[data-path="isl-dictionary"]');
+  if (dictTab) {
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('text-primary', 'font-bold'));
+    dictTab.classList.add('text-primary', 'font-bold');
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_16px_-2px_rgba(15,23,42,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="live-translator" href="#"><span class="material-symbols-outlined text-[28px]">center_focus_strong</span><span class="font-label-sm text-[10px] tracking-tight mt-0.5 font-semibold">Translate</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="isl-dictionary" href="#"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm">Dictionary</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="translation-history" href="#"><span class="material-symbols-outlined text-[24px]">history</span><span class="font-label-sm text-label-sm">History</span></a></div></nav></body></html>

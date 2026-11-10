@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>SignBridge - ISL AI</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#d3e4fe", "on-tertiary-container": "#27c38a", "primary-fixed-dim": "#b6c4ff", "on-tertiary": "#ffffff", "surface": "#f8f9ff", "surface-container-low": "#eff4ff", "tertiary-fixed": "#6ffbbe", "surface-dim": "#cbdbf5", "primary-container": "#1e3a8a", "tertiary": "#00311f", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "on-secondary": "#ffffff", "secondary": "#0058be", "on-tertiary-fixed-variant": "#005236", "tertiary-container": "#004a31", "inverse-on-surface": "#eaf1ff", "inverse-surface": "#213145", "outline": "#757682", "on-tertiary-fixed": "#002113", "on-background": "#0b1c30", "background": "#f8f9ff", "error": "#ba1a1a", "primary-fixed": "#dce1ff", "on-primary-container": "#90a8ff", "on-primary-fixed": "#00164e", "on-secondary-fixed": "#001a42", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-container-highest": "#d3e4fe", "surface-container": "#e5eeff", "on-secondary-container": "#fefcff", "on-surface-variant": "#444651", "surface-tint": "#4059aa", "primary": "#00236f", "on-secondary-fixed-variant": "#004395", "on-error": "#ffffff", "secondary-fixed": "#d8e2ff", "tertiary-fixed-dim": "#4edea3", "surface-container-high": "#dce9ff", "outline-variant": "#c5c5d3", "on-surface": "#0b1c30", "inverse-primary": "#b6c4ff", "secondary-container": "#2170e4", "secondary-fixed-dim": "#adc6ff", "surface-bright": "#f8f9ff", "on-primary-fixed-variant": "#264191" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xs": "0.25rem", "gutter": "1rem", "margin": "1rem", "space-xl": "2rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "margin-desktop": "3rem", "space-md": "1rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem", "margin-tablet": "1.5rem" }, fontFamily: { "label-lg": ["Inter"], "body-md": ["Inter"], "display-lg": ["Manrope"], "headline-md": ["Manrope"], "label-sm": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Manrope"], "label-md": ["Inter"], "body-lg": ["Inter"], "code-output": ["Inter"], "display-lg-mobile": ["Manrope"], "headline-sm": ["Manrope"] }, fontSize: { "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "code-output": ["14px", { "lineHeight": "20px", "fontWeight": "500" }], "display-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="SignBridge Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrCWaUaLvj8g4jDwWMzpqVIhe0D7tN_N9DK2TSJAfaT0y1nMXdRaOuF78G20F9vi9A0r6lFj2aympwuPPWP5Rxc-BmU2j1IDBlc_rwfTddu3-zcM_vGaO9JN2-GhJ46AqanqKYlPayqDArufSAnvHuCETlKSGcQId9wyiiIrKb6_ijqj9I8l61V4T2UK97SdTMnHHxZEdn3388kR-X-3SJTwALlcSHNEauLXrcHfY6FS"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold truncate">SignBridge</span><span class="px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[10px] font-label-sm uppercase tracking-wider font-semibold whitespace-nowrap">ISL AI</span></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Live Translator</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Notifications &amp; System Status" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors focus:outline-none"><span class="material-symbols-outlined text-[22px]">info</span></button><a class="w-11 h-11 flex items-center justify-center rounded-full focus:outline-none" data-path="settings" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIWaeIc88jZoxZLR9gmAr5V8nYCbRCoBt5AQIalr-YvMGORbbFT32HHBFGURp2_1vdZcrCYS4N6NHR0zlzb8l6Rn-Ce17efSCPYY-ia-pEGAXWjvS7yXkdd9znV-2MUN5x7uf1ktYdNXwtAD98YZlVjwOkaJEPDezbT1lFI31_LkdxTqaqLLXoD00I78efGpg7Lj8wO7WKSbKsf28PihGmgTr4Db1ri6z4bHf_3k"/></a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive Viewport Container (Approx 50% screen visual anchor) -->
+<div class="relative w-full aspect-[4/3] max-h-[380px] bg-inverse-surface overflow-hidden shadow-md flex items-center justify-center select-none">
+<!-- Simulated Video Feed Frame -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-85 pointer-events-none" data-alt="First-person perspective of student hands demonstrating Indian Sign Language ISL in a well-lit academic lab setting. Soft daylight from a window, clean wooden desk background, crisp high-definition focus on the fingers and palms with high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2MuiK69yd4H16vMpAT7CGXP3kU9x_XDplnJAih0cQzUlHLH0QOz0Dxzk9F-eNwuYDNj7aTc7PW-xVD0Ck6gi1y99AghS3KxtjakjL7ZoQHD42E4VLMiTCVmieyb4ztAxJaAHOmrLTwSjBzHXVwYKAcpbEfM_e3Vc25j2LpsJujO1-u0BjNrUQQkfc9ZkYYgLL8mHTlNpol9-Sw4fbr6Kn22lIa7s-O5v5h_AR2Ug"/>
+<!-- Ambient Dark Gradient Scrims for HUD Elements Legibility -->
+<div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/80 via-transparent to-inverse-surface/90 pointer-events-none"></div>
+<!-- Hand Mesh Landmark Overlay (SVG Real-Time Representation) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" preserveaspectratio="none" viewbox="0 0 400 300">
+<!-- MediaPipe Landmark Node Connectors (Hands) -->
+<!-- Left Hand Connections -->
+<polyline fill="none" opacity="0.8" points="120,205 130,175 145,150 160,135 175,145 160,175 145,210 120,205" stroke="#27c38a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<polyline fill="none" points="145,150 148,115 156,118 152,148" stroke="#27c38a" stroke-linecap="round" stroke-width="1.8"></polyline>
+<polyline fill="none" points="160,135 170,105 178,110 170,140" stroke="#27c38a" stroke-linecap="round" stroke-width="1.8"></polyline>
+<polyline fill="none" points="175,145 186,118 193,122 182,150" stroke="#27c38a" stroke-linecap="round" stroke-width="1.8"></polyline>
+<!-- Right Hand Connections (Active 'Water' C-hand formation) -->
+<polyline fill="none" points="230,200 242,165 258,142 278,130 292,142 278,172 260,205 230,200" stroke="#6ffbbe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></polyline>
+<polyline fill="none" points="258,142 262,95 272,98 268,140" stroke="#6ffbbe" stroke-linecap="round" stroke-width="2"></polyline>
+<polyline fill="none" points="278,130 288,90 298,94 288,132" stroke="#6ffbbe" stroke-linecap="round" stroke-width="2"></polyline>
+<polyline fill="none" points="292,142 308,102 316,108 300,145" stroke="#6ffbbe" stroke-linecap="round" stroke-width="2"></polyline>
+<!-- Key Dynamic Nodes -->
+<circle cx="262" cy="95" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="288" cy="90" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="308" cy="102" fill="#27c38a" r="4.5" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="242" cy="165" fill="#6ffbbe" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="148" cy="115" fill="#27c38a" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<circle cx="170" cy="105" fill="#27c38a" r="3.5" stroke="#ffffff" stroke-width="1.5"></circle>
+<!-- AI Bounding Box (Locked Gesture) -->
+<rect fill="none" height="145" opacity="0.85" rx="8" stroke="#27c38a" stroke-dasharray="4 2" stroke-width="1.5" width="115" x="215" y="75"></rect>
+<!-- Bounding Box Corner Reticles -->
+<path d="M 215 90 L 215 75 L 230 75" fill="none" stroke="#6ffbbe" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 315 75 L 330 75 L 330 90" fill="none" stroke="#6ffbbe" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 215 205 L 215 220 L 230 220" fill="none" stroke="#6ffbbe" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 315 220 L 330 220 L 330 205" fill="none" stroke="#6ffbbe" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<!-- Top Viewport Control Bar -->
+<div class="absolute top-3 inset-x-3 flex items-center justify-between z-20 pointer-events-auto">
+<!-- FPS & Model Telemetry Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-inverse-surface/75 backdrop-blur-md text-inverse-on-surface shadow-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-wide">30 FPS</span>
+<span class="text-surface-variant/40 font-label-sm">|</span>
+<span class="font-label-sm text-label-sm text-surface-variant font-medium">14ms latency</span>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Toggle Guide Frame Flash" class="w-9 h-9 rounded-full bg-inverse-surface/75 backdrop-blur-md text-inverse-on-surface flex items-center justify-center hover:bg-inverse-surface active:scale-95 transition-all" id="btnTorch">
+<span class="material-symbols-outlined text-[19px]">light_mode</span>
+</button>
+<button aria-label="Switch Camera" class="w-9 h-9 rounded-full bg-inverse-surface/75 backdrop-blur-md text-inverse-on-surface flex items-center justify-center hover:bg-inverse-surface active:scale-95 transition-all" id="btnCameraFlip">
+<span class="material-symbols-outlined text-[19px]">flip_camera_ios</span>
+</button>
+</div>
+</div>
+<!-- Live Model State Tracker Chip (Bottom of Viewport) -->
+<div class="absolute bottom-3 inset-x-3 flex items-center justify-between z-20 pointer-events-auto">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-inverse-surface/85 backdrop-blur-md shadow-md text-inverse-on-surface">
+<span class="material-symbols-outlined text-[17px] text-tertiary-fixed">pan_tool</span>
+<span class="font-label-sm text-label-sm font-medium">MediaPipe: 2 Hands Locked</span>
+</div>
+<!-- Compact Camera Pause/Record Trigger -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-semibold tracking-wide shadow-md active:scale-95 transition-all" id="cameraToggleState">
+<span class="w-2 h-2 rounded-sm bg-on-error animate-ping"></span>
+<span>STOP AI</span>
+</button>
+</div>
+</div>
+<!-- Content Flow Container -->
+<div class="px-gutter flex flex-col gap-space-md py-space-md">
+<!-- Active Inference Pipeline Banner -->
+<div class="w-full bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container font-semibold">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Recognition State</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Sign Recognized: "WATER"</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>94% Conf.</span>
+</div>
+</div>
+<!-- Real-Time Word & Sentence Accumulator Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<!-- Section Micro-Header -->
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold tracking-wider">Currently Recognized Sign</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-medium">Daily Needs</span>
+</div>
+<!-- Dominant Sign Display -->
+<div class="flex items-baseline justify-between pt-0.5">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">WATER</h2>
+<div class="flex items-center gap-1 text-on-tertiary-container font-label-lg text-label-lg font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>94% Match</span>
+</div>
+</div>
+<!-- Flow Delimiter Bar -->
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden my-1">
+<div class="w-[94%] h-full bg-secondary rounded-full"></div>
+</div>
+<!-- Sequence Tokens Tray (Live Multi-word Buffer) -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Token Sequence</span>
+<span class="font-label-sm text-label-sm text-outline">3 items parsed</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 min-h-[38px]">
+<!-- Word Token 1 -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold">
+<span>I</span>
+<span class="text-[10px] px-1 py-0.2 rounded bg-surface-container-lowest text-on-surface-variant">92%</span>
+</div>
+<span class="text-on-surface-variant font-label-md">+</span>
+<!-- Word Token 2 -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold">
+<span>WANT</span>
+<span class="text-[10px] px-1 py-0.2 rounded bg-surface-container-lowest text-on-surface-variant">88%</span>
+</div>
+<span class="text-on-surface-variant font-label-md">+</span>
+<!-- Word Token 3 (Latest) -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-bold">
+<span>WATER</span>
+<span class="text-[10px] px-1 py-0.2 rounded bg-surface-container-lowest text-primary font-bold">94%</span>
+</div>
+</div>
+</div>
+<!-- Natural Synthesized Output Sentence -->
+<div class="mt-2 p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">neurology</span>
+            Natural English Formulation
+          </span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">n-gram v2.4</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold" id="targetSpeechText">"I want water."</p>
+</div>
+<!-- Action Toolbar (Generous Accessible Touch Area) -->
+<div class="grid grid-cols-3 gap-2 pt-2">
+<!-- Speak Button -->
+<button class="h-12 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 active:scale-[0.98] shadow-sm transition-transform" id="btnSpeak">
+<span class="material-symbols-outlined text-[20px]" id="speakIcon">volume_up</span>
+<span id="speakLabel">Speak</span>
+</button>
+<!-- Copy Button -->
+<button class="h-12 rounded-xl bg-surface-container-high text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 hover:bg-surface-variant active:scale-[0.98] transition-all" id="btnCopy">
+<span class="material-symbols-outlined text-[20px]" id="copyIcon">content_copy</span>
+<span id="copyLabel">Copy</span>
+</button>
+<!-- Clear Button -->
+<button class="h-12 rounded-xl bg-surface-container-high text-on-surface-variant font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 hover:bg-error-container hover:text-on-error-container active:scale-[0.98] transition-all" id="btnClear">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+<span>Clear</span>
+</button>
+</div>
+</div>
+<!-- Secondary Guidance & Alternative Inferences Drawer -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-secondary">model_training</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Alternative Candidates</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Top-k Disambiguation</span>
+</div>
+<!-- Alternative Hypothesis Bars -->
+<div class="flex flex-col gap-2 pt-1">
+<!-- Alternate 1 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Drink (Action)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">78% Match</span>
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-secondary text-label-sm font-semibold hover:bg-surface-variant active:scale-95">Use</button>
+</div>
+</div>
+<!-- Alternate 2 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Cup / Glass</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">64% Match</span>
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-secondary text-label-sm font-semibold hover:bg-surface-variant active:scale-95">Use</button>
+</div>
+</div>
+</div>
+<!-- Ambient Tip & Lighting Feedback -->
+<div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-high mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0">lightbulb</span>
+<span class="font-body-sm text-body-sm">Tip: Maintain two hands visible within the reticle grid to sustain &gt;90% ISL grammar accuracy.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    // 1. Text-To-Speech Synthesis Simulation
+    const btnSpeak = document.getElementById('btnSpeak');
+    const speakIcon = document.getElementById('speakIcon');
+    const speakLabel = document.getElementById('speakLabel');
+    const targetSpeechText = document.getElementById('targetSpeechText');
+
+    let isSpeaking = false;
+    btnSpeak.addEventListener('click', function () {
+      if (isSpeaking) return;
+      isSpeaking = true;
+      speakIcon.textContent = 'graphic_eq';
+      speakLabel.textContent = 'Playing...';
+      btnSpeak.classList.add('bg-tertiary-container', 'text-on-tertiary');
+
+      if ('speechSynthesis' in window) {
+        const text = targetSpeechText.textContent.replace(/["']/g, '');
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-IN';
+        utterance.onend = resetSpeakButton;
+        utterance.onerror = resetSpeakButton;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        setTimeout(resetSpeakButton, 1800);
+      }
+    });
+
+    function resetSpeakButton() {
+      isSpeaking = false;
+      speakIcon.textContent = 'volume_up';
+      speakLabel.textContent = 'Speak';
+      btnSpeak.classList.remove('bg-tertiary-container', 'text-on-tertiary');
+    }
+
+    // 2. Clipboard Copy Interaction
+    const btnCopy = document.getElementById('btnCopy');
+    const copyIcon = document.getElementById('copyIcon');
+    const copyLabel = document.getElementById('copyLabel');
+
+    btnCopy.addEventListener('click', function () {
+      const textToCopy = targetSpeechText.textContent.replace(/["']/g, '');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy);
+      }
+      copyIcon.textContent = 'task_alt';
+      copyLabel.textContent = 'Copied!';
+      btnCopy.classList.add('bg-tertiary-fixed', 'text-on-tertiary-fixed');
+
+      setTimeout(() => {
+        copyIcon.textContent = 'content_copy';
+        copyLabel.textContent = 'Copy';
+        btnCopy.classList.remove('bg-tertiary-fixed', 'text-on-tertiary-fixed');
+      }, 1600);
+    });
+
+    // 3. Clear Sentence Action
+    const btnClear = document.getElementById('btnClear');
+    btnClear.addEventListener('click', function () {
+      targetSpeechText.textContent = '"..."';
+      setTimeout(() => {
+        targetSpeechText.textContent = '"I want water."';
+      }, 3000);
+    });
+
+    // 4. Camera Recognition Toggle (Start/Stop)
+    const cameraToggleState = document.getElementById('cameraToggleState');
+    let isTrackingActive = true;
+    cameraToggleState.addEventListener('click', function () {
+      isTrackingActive = !isTrackingActive;
+      if (isTrackingActive) {
+        cameraToggleState.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-semibold tracking-wide shadow-md active:scale-95 transition-all';
+        cameraToggleState.innerHTML = '<span class="w-2 h-2 rounded-sm bg-on-error animate-ping"></span><span>STOP AI</span>';
+      } else {
+        cameraToggleState.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary font-label-sm text-label-sm font-semibold tracking-wide shadow-md active:scale-95 transition-all';
+        cameraToggleState.innerHTML = '<span class="material-symbols-outlined text-[14px]">play_arrow</span><span>RESUME</span>';
+      }
+    });
+
+    // 5. Flip Camera & Torch Toggles
+    const btnTorch = document.getElementById('btnTorch');
+    let torchState = false;
+    btnTorch.addEventListener('click', function () {
+      torchState = !torchState;
+      btnTorch.classList.toggle('text-tertiary-fixed', torchState);
+      btnTorch.classList.toggle('bg-inverse-surface/90', torchState);
+    });
+
+    const btnCameraFlip = document.getElementById('btnCameraFlip');
+    btnCameraFlip.addEventListener('click', function () {
+      btnCameraFlip.classList.add('rotate-180');
+      setTimeout(() => btnCameraFlip.classList.remove('rotate-180'), 300);
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_16px_-2px_rgba(15,23,42,0.06)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center relative -top-3 w-16 h-16 rounded-full bg-primary shadow-lg shadow-primary/25 hover:bg-primary-container transition-all active:scale-95 focus:outline-none text-primary font-bold" data-path="live-translator" href="#"><span class="material-symbols-outlined text-[28px]">center_focus_strong</span><span class="font-label-sm text-[10px] tracking-tight mt-0.5 font-semibold">Translate</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="isl-dictionary" href="#"><span class="material-symbols-outlined text-[24px]">menu_book</span><span class="font-label-sm text-label-sm">Dictionary</span></a><a class="flex flex-col items-center justify-center w-16 h-12 gap-0.5 text-on-surface-variant hover:text-primary transition-colors focus:outline-none" data-path="translation-history" href="#"><span class="material-symbols-outlined text-[24px]">history</span><span class="font-label-sm text-label-sm">History</span></a></div></nav></body></html>

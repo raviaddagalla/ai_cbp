@@ -15,6 +15,7 @@ Run with:
 """
 
 import os
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -22,7 +23,11 @@ from schemas import PredictRequest, PredictResponse, HistoryEntry, HistorySaveRe
 from database import init_db, save_translation, get_history, clear_history
 from signs_meta import SIGN_LABELS, SIGN_CATEGORIES, SIGN_DESCRIPTIONS
 
-# ── Try to load a trained model; fall back to untrained (random) model ──
+# ── Load model (trained or untrained fallback) ──────────────────────────────
+engine       = None
+MODEL_LOADED = False
+_label_names = SIGN_LABELS   # default to ISL labels until model is loaded
+
 try:
     from model import load_model, SignGRU
     from inference import ISLInferenceEngine
@@ -30,30 +35,42 @@ try:
     MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "sign_gru.pt")
 
     if os.path.exists(MODEL_PATH):
-        _model = load_model(MODEL_PATH)
-        engine = ISLInferenceEngine(_model)
+        _model, _label_names = load_model(MODEL_PATH)
+        engine       = ISLInferenceEngine(_model, _label_names)
         MODEL_LOADED = True
         print(f"[SignBridge] ✅ Trained model loaded from {MODEL_PATH}")
+        print(f"[SignBridge]    Classes: {len(_label_names)}  |  Input features: {_model.gru.input_size}")
     else:
         # Untrained model — predictions will be random until training is complete
-        _model = SignGRU()
-        engine = ISLInferenceEngine(_model)
+        _model  = SignGRU()
+        engine  = ISLInferenceEngine(_model, SIGN_LABELS)
+        _label_names = SIGN_LABELS
         MODEL_LOADED = False
-        print("[SignBridge] ⚠️  No trained model found. Using untrained GRU (random predictions).")
-        print(f"             Train first: see training/README.md")
-        print(f"             Then copy model to: {MODEL_PATH}")
+        print("[SignBridge] ⚠️  No trained model found — using untrained GRU (random predictions).")
+        print(f"[SignBridge]    Train first: see training/README.md")
+        print(f"[SignBridge]    Then copy model to: {MODEL_PATH}")
 
 except Exception as e:
-    engine = None
+    engine       = None
     MODEL_LOADED = False
     print(f"[SignBridge] ❌ Could not load model: {e}")
 
 
+# ── App lifespan (replaces deprecated @app.on_event) ───────────────────────
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Initialize database on startup; nothing to clean up on shutdown."""
+    init_db()
+    os.makedirs(os.path.join(os.path.dirname(__file__), "models"), exist_ok=True)
+    yield
+
+
 # ---------------------------------------------------------------------------
 app = FastAPI(
-    title="SignBridge ISL API",
-    description="Indian Sign Language Recognition Backend",
-    version="1.0.0",
+    title="SignBridge API",
+    description="Sign Language Recognition Backend — supports ISL (35 signs) and ASL Citizen (200 signs)",
+    version="2.0.0",
+    lifespan=lifespan,
 )
 
 # Allow CORS from the React dev server and production Vercel domain
@@ -65,13 +82,6 @@ app.add_middleware(
 )
 
 
-@app.on_event("startup")
-async def startup():
-    """Initialize database and model directory on startup."""
-    init_db()
-    os.makedirs(os.path.join(os.path.dirname(__file__), "models"), exist_ok=True)
-
-
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
@@ -80,18 +90,18 @@ async def startup():
 def root():
     """Health check endpoint."""
     return {
-        "app": "SignBridge ISL API",
+        "app": "SignBridge API",
         "status": "running",
         "model_loaded": MODEL_LOADED,
-        "supported_signs": len(SIGN_LABELS),
-        "version": "1.0.0",
+        "num_classes": len(_label_names),   # BUG-FIX: was len(SIGN_LABELS) — always 35, ignoring loaded model
+        "version": "2.0.0",
     }
 
 
 @app.post("/predict", response_model=PredictResponse, tags=["Inference"])
 def predict(req: PredictRequest):
     """
-    Run ISL gesture recognition on a sequence of hand landmark frames.
+    Run sign gesture recognition on a sequence of hand landmark frames.
     Accepts up to 30 frames of 21 MediaPipe hand landmarks per frame.
     """
     if engine is None:
@@ -109,7 +119,7 @@ def predict(req: PredictRequest):
 
 @app.get("/signs", tags=["Dictionary"])
 def list_signs():
-    """Return metadata for all 35 supported ISL signs."""
+    """Return metadata for all supported signs (ISL dictionary)."""
     return [
         {
             "id": i,
@@ -155,4 +165,5 @@ def delete_history():
     """Clear all translation history from the database."""
     clear_history()
     return {"message": "History cleared"}
+
 

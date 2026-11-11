@@ -36,6 +36,9 @@ Thumbs.db
 # Large generated training datasets (can be regenerated with training/train.py)
 training/data/
 */training/data/
+data_asl_citizen/
+*/data_asl_citizen/
+*.npy
 
 # Archives
 stitch_signbridge_isl_translator_pwa.zip

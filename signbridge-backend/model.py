@@ -69,14 +69,67 @@ class SignGRU(nn.Module):
         return logits
 
 
-def load_model(weights_path: str, device: str = "cpu") -> "SignGRU":
+def load_model(weights_path: str, device: str = "cpu"):
     """
-    Load a saved SignGRU model from a .pt checkpoint file.
-    Returns the model in eval mode.
+    Load a SignGRU (or SignGRUDynamic) model from a .pt checkpoint file.
+
+    Supports two checkpoint formats:
+      1. Legacy: raw state_dict (original 35-class ISL model)
+      2. Extended: dict with keys 'state_dict', 'label_names', 'num_classes',
+                   'hidden_size', 'num_layers'  (ASL Citizen / multi-class)
+
+    Returns (model, label_names) where label_names is a list of sign strings.
     """
-    model = SignGRU()
-    state_dict = torch.load(weights_path, map_location=device)
-    model.load_state_dict(state_dict)
+    import os, sys
+
+    checkpoint = torch.load(weights_path, map_location=device,
+                            weights_only=False)
+
+    # ── Extended checkpoint (dict with metadata) ──
+    if isinstance(checkpoint, dict) and "state_dict" in checkpoint:
+        num_classes  = checkpoint.get("num_classes",  200)
+        hidden_size  = checkpoint.get("hidden_size",  128)
+        num_layers   = checkpoint.get("num_layers",   3)
+        input_size   = checkpoint.get("input_size",   NUM_FEATURES)   # BUG-FIX: was hardcoded to NUM_FEATURES (42)
+        label_names  = checkpoint.get("label_names",  None)
+
+        model = SignGRU.__new__(SignGRU)
+        nn.Module.__init__(model)
+        model.gru = nn.GRU(
+            input_size=input_size,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
+            batch_first=True,
+            dropout=DROPOUT_RATE if num_layers > 1 else 0.0,
+        )
+        model.dropout    = nn.Dropout(DROPOUT_RATE)
+        model.classifier = nn.Linear(hidden_size, num_classes)
+        model.load_state_dict(checkpoint["state_dict"])
+
+        # Fallback: load label names from companion JSON
+        if label_names is None:
+            label_json = weights_path.replace(".pt", "_labels.json")
+            if os.path.exists(label_json):
+                import json
+                with open(label_json) as f:
+                    label_names = json.load(f)
+
+        # Final fallback: original ISL 35-class labels
+        if label_names is None:
+            try:
+                sys.path.insert(0, os.path.dirname(weights_path))
+                from signs_meta import SIGN_LABELS
+                label_names = SIGN_LABELS
+            except ImportError:
+                label_names = [str(i) for i in range(num_classes)]
+
+    # ── Legacy checkpoint (raw state_dict) ──
+    else:
+        from signs_meta import SIGN_LABELS
+        model = SignGRU(num_classes=len(SIGN_LABELS))
+        model.load_state_dict(checkpoint)
+        label_names = SIGN_LABELS
+
     model.eval()
-    return model
+    return model, label_names
 

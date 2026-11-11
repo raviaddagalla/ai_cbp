@@ -4,11 +4,17 @@
 //
 // In offline/demo mode (when the backend is unreachable), it falls back to
 // a simple rule-based heuristic using only hand position on screen.
+//
+// BUG-FIX: backendAvailable is now periodically retried so the hook recovers
+// automatically when the backend comes back online after a transient failure.
 
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useEffect } from "react";
 import type { Landmark } from "./useMediaPipe";
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+
+// How long (ms) to wait before retrying a failed backend connection
+const BACKEND_RETRY_INTERVAL_MS = 10_000;
 
 export interface PredictionResult {
   sign:       string;
@@ -42,8 +48,9 @@ function demoPredict(frames: Landmark[][]): PredictionResult {
 }
 
 export function useGRUModel() {
-  // Track whether the backend is reachable
-  const backendAvailable = useRef<boolean | null>(null);
+  // null = unknown, true = reachable, false = unreachable
+  const backendAvailable  = useRef<boolean | null>(null);
+  const retryTimerRef     = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /**
    * Check if the FastAPI backend is online.
@@ -58,6 +65,26 @@ export function useGRUModel() {
       backendAvailable.current = false;
       return false;
     }
+  }, []);
+
+  /**
+   * Schedule a background retry when the backend goes offline.
+   * Clears itself once the backend is confirmed reachable.
+   */
+  const scheduleRetry = useCallback(() => {
+    if (retryTimerRef.current) return;   // already scheduled
+    retryTimerRef.current = setTimeout(async () => {
+      retryTimerRef.current = null;
+      const ok = await checkBackend();
+      if (!ok) scheduleRetry();   // keep retrying until online
+    }, BACKEND_RETRY_INTERVAL_MS);
+  }, [checkBackend]);
+
+  // Cancel any pending retry timer on unmount
+  useEffect(() => {
+    return () => {
+      if (retryTimerRef.current) clearTimeout(retryTimerRef.current);
+    };
   }, []);
 
   /**
@@ -92,11 +119,12 @@ export function useGRUModel() {
         source:     "model",
       };
     } catch {
-      // Backend unreachable — switch to demo mode
+      // BUG-FIX: schedule a retry instead of leaving stuck in demo mode forever
       backendAvailable.current = false;
+      scheduleRetry();
       return demoPredict(frames);
     }
-  }, []);
+  }, [scheduleRetry]);
 
   return { predict, checkBackend };
 }

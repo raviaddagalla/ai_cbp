@@ -137,8 +137,8 @@ export default function LiveTranslator() {
         setHandsVisible(true);
         const landmarks = result.landmarks[0] as Landmark[];
 
-        // Draw skeleton overlay
-        drawLandmarks(canvas, result, video.videoWidth, video.videoHeight);
+        // Draw skeleton overlay (pass mirrored=true for front camera)
+        drawLandmarks(canvas, result, video.videoWidth, video.videoHeight, facingModeRef.current === "user");
 
         // Collect frames into rolling buffer
         frameBuffer.current.push(landmarks);
@@ -247,11 +247,10 @@ export default function LiveTranslator() {
         {/* Gradient overlay for HUD legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-inverse-surface/70 via-transparent to-inverse-surface/80 pointer-events-none" />
 
-        {/* Landmark canvas overlay */}
+        {/* Landmark canvas overlay — mirroring is handled in JS, not CSS */}
         <canvas
           ref={canvasRef}
           className="camera-overlay z-10"
-          style={{ transform: facingModeRef.current === "user" ? "scaleX(-1)" : "none" }}
         />
 
         {/* Idle / error screen */}

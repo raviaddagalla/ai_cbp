@@ -74,50 +74,69 @@ export function useMediaPipe() {
 
   /**
    * Draw the detected hand skeleton onto a <canvas> overlay.
-   * Uses the MediaPipe drawing utilities for the standard green dots + lines.
+   *
+   * The canvas is sized to match the *displayed* video dimensions (not the
+   * native video resolution) so points align with what the user sees.
+   * When the front camera is active the video is CSS-mirrored with
+   * scaleX(-1); we compensate by flipping landmark x-coordinates so the
+   * skeleton tracks the hand correctly without relying on the CSS transform.
    */
   const drawLandmarks = useCallback(
     (
       canvas: HTMLCanvasElement,
       result: HandLandmarkerResult,
       videoWidth: number,
-      videoHeight: number
+      videoHeight: number,
+      mirrored = false
     ) => {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
-      // Set canvas dimensions to match the video feed
-      canvas.width  = videoWidth;
-      canvas.height = videoHeight;
-      ctx.clearRect(0, 0, videoWidth, videoHeight);
+      // Size the canvas to the element's *displayed* size so coordinates
+      // map to the pixels the user actually sees (fixes the offset caused
+      // by object-cover scaling the native video resolution).
+      const rect = canvas.getBoundingClientRect();
+      const displayW = rect.width  || videoWidth;
+      const displayH = rect.height || videoHeight;
+
+      if (canvas.width !== displayW || canvas.height !== displayH) {
+        canvas.width  = displayW;
+        canvas.height = displayH;
+      }
+      ctx.clearRect(0, 0, displayW, displayH);
 
       if (!result.landmarks || result.landmarks.length === 0) return;
 
+      // Helper: map a normalized [0,1] landmark coord to canvas pixels.
+      // When mirrored we flip x so the skeleton follows the hand even though
+      // the CSS scaleX(-1) transform is NOT applied to the canvas itself.
+      const toX = (nx: number) =>
+        mirrored ? (1 - nx) * displayW : nx * displayW;
+      const toY = (ny: number) => ny * displayH;
+
       for (const hand of result.landmarks) {
-        // Draw connections (skeleton lines)
-        const CONNECTIONS = [
-          [0,1],[1,2],[2,3],[3,4],           // thumb
-          [0,5],[5,6],[6,7],[7,8],           // index finger
-          [0,9],[9,10],[10,11],[11,12],      // middle finger
-          [0,13],[13,14],[14,15],[15,16],    // ring finger
-          [0,17],[17,18],[18,19],[19,20],    // pinky
-          [5,9],[9,13],[13,17],              // palm knuckles
+        const CONNECTIONS: [number, number][] = [
+          [0,1],[1,2],[2,3],[3,4],
+          [0,5],[5,6],[6,7],[7,8],
+          [0,9],[9,10],[10,11],[11,12],
+          [0,13],[13,14],[14,15],[15,16],
+          [0,17],[17,18],[18,19],[19,20],
+          [5,9],[9,13],[13,17],
         ];
 
-        ctx.strokeStyle = "#27c38a"; // emerald green
+        ctx.strokeStyle = "#27c38a";
         ctx.lineWidth   = 2;
 
         for (const [a, b] of CONNECTIONS) {
           ctx.beginPath();
-          ctx.moveTo(hand[a].x * videoWidth, hand[a].y * videoHeight);
-          ctx.lineTo(hand[b].x * videoWidth, hand[b].y * videoHeight);
+          ctx.moveTo(toX(hand[a].x), toY(hand[a].y));
+          ctx.lineTo(toX(hand[b].x), toY(hand[b].y));
           ctx.stroke();
         }
 
-        // Draw landmark nodes
         for (const lm of hand) {
           ctx.beginPath();
-          ctx.arc(lm.x * videoWidth, lm.y * videoHeight, 4, 0, Math.PI * 2);
+          ctx.arc(toX(lm.x), toY(lm.y), 4, 0, Math.PI * 2);
           ctx.fillStyle   = "#27c38a";
           ctx.strokeStyle = "#ffffff";
           ctx.lineWidth   = 2;

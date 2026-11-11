@@ -5,5 +5,7 @@ __pycache__/
 .env
 signbridge.db
 training/data/
+training/data_asl_citizen/
+*.npy
 *.egg-info/
 .DS_Store
